@@ -1,0 +1,182 @@
+body {
+  margin: 0;
+  background: #e2e8f0;
+}
+.logo__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+}
+.logo {
+  width: 35px;
+}
+.logo__text,
+.menu__item-text {
+  width: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+.logo__text {
+  color: #ff7301;
+  font-weight: 700;
+}
+.actionBtn {
+  position: absolute;
+  right: -35px;
+  transition: right 0.5s ease;
+  background: #fff;
+  border-radius: 50%;
+  border: 0;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.actionBtn svg {
+  width: 6px;
+}
+.sidebar {
+  background-color: #fff;
+  color: #000;
+  width: 60px;
+  height: 100vh;
+  padding: 20px 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar:not(.opened) {
+  animation: slideout 0.8s ease;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  align-items: center;
+}
+.menu__item {
+  width: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 0;
+  min-height: 34px;
+  box-sizing: border-box;
+  color: #696b6d;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.menu__item_mail {
+  position: relative;
+}
+.menu__item_mail:after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #ec2f31;
+  left: 20px;
+  bottom: 10px;
+  border-radius: 50%;
+}
+.menu__item_active {
+  background: #f0f1ff;
+  color: #0b1f81;
+}
+.menu__item:hover {
+  background: #f1f5f9;
+}
+.settings {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.sidebar.opened {
+  width: 165px;
+  padding: 20px 15px 20px;
+  position: relative;
+  animation: slidein 0.8s ease;
+}
+.sidebar.opened .logo__text,
+.sidebar.opened .menu__item-text {
+  display: inline;
+}
+.sidebar.opened .actionBtn {
+  position: absolute;
+  right: -5px;
+  background: #e2e8f0;
+}
+.sidebar.opened .logo__container {
+  justify-content: flex-start;
+  position: static;
+  gap: 7px;
+}
+.sidebar.opened .menu,
+.sidebar.opened .settings {
+  align-items: self-start;
+}
+.sidebar.opened .menu__item {
+  width: 100%;
+  padding: 5px 7px;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.sidebar.opened .menu__item-text,
+.sidebar.opened .logo__text {
+  animation: shrinkAndAppear 0.4s ease forwards;
+  animation-delay: 0.4s;
+}
+@keyframes slidein {
+  from {
+    width: 60px;
+  }
+  to {
+    width: 165px;
+  }
+}
+@keyframes slideout {
+  from {
+    width: 165px;
+  }
+  to {
+    width: 60px;
+  }
+}
+@keyframes shrinkAndAppear {
+  0% {
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+  50% {
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes shrinkAndAppearReverse {
+  0% {
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+  }
+  50% {
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
